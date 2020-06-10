@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Old Stairwell 
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20130313
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Karlsruhe Maximum Independent Sets</title>
+<meta name="keywords" content="independent set, graph algorithm, multilevel algorithm, kamis, schulz, strash, lamm, sanders, werneck, networks, large networks, data, parallel algorithms, approximation"/>
+<meta name="description" content="The main project page of to open source graph drawing KaMIS -- Karlsruhe " />
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css">
+<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+<!--[if IE 6]>
+<link href="default_ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1><a href="#">KaMIS - </a><a href="#" style="color:red">Ka</a><a href="#">rlsruhe </a> <a href="#" style="color:red">M</a><a href="#">aximum</a> <a href="#" style="color:red">I</a><a href="#">ndependent</a> <a href="#" style="color:red">S</a><a href="#">ets</a></h1>
+                        <br>
+Jakob Dahlum, Demian Hespe, Sebastian Lamm, Peter Sanders, Christian Schulz, Darren Strash, Renato F. Werneck and Robert Williger
+		</div>
+		<div id="menu">
+			<ul>
+				<li><a href="#" accesskey="1" title="">Homepage</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="page">
+		<div id="content">
+			<h2>Overview</h2>
+
+                        This is the open source project KaMIS - Karlsruhe Maximum Independent Sets. 
+Given a graph G=(V,E), the goal of the maximum independent set problem is to compute a maximum cardinality set of vertices I, such that no vertices in the set are adjacent to one another. Such a set is called a maximum independent set.
+The problem is NP-hard and particularly difficult to solve in large sparse graphs. 
+<br>
+So far our framework contains the ReduMIS [1,2] as well as the FastKer [3] algorithm which is an advanced evolutionary algorithm based on graph partitioning (using the <a href="http://algo2.iti.kit.edu/kahip/">KaHIP</a> framework) and incorporates kernelization techniques to compute large independent sets in huge sparse networks. 
+Our algorithm uses reduction techniques and recursively chooses vertices that are likely to be in a large independent set (using an evolutionary approach), to then further kernelize the graph. This opens up the reduction space---which not only speeds up the computation of large independent sets drastically, but also enables us to compute high-quality independent sets on massive instances. Lastly, we now include online mis [6] (which applies reductions on the fly) as well as our codes to solve weighted independent set problems [5]. The code is maintained by Sebastian Lamm.
+<br>
+<br>
+<br>
+
+<b style="color:red">News:</b>       <br>
+<b> May 2020:</b> We integrated weighted independent set code, online mis, switched to MIT licences and now use cmake as a build system. The new version of KaMIS is 2.0. <br>
+<b>October 2019:</b> The paper describing the PACE 2019 winning algorithm has been accepted for publication at CSC'20.<br>
+<b>July 2019:</b> Our codes won the PACE 2019 challenge, vertex cover track. <br>
+<b>August 2019:</b> We integrated our faster kernelization techniques [3] framework.  <br>
+<b>November 2015:</b> Initial Release of the framework. <br> <br>
+
+ 
+
+			<h2>Licence</h2>
+                        The program is licenced under MIT. Please let us know if you need a commercial licence.<br>
+                        If you publish results using our algorithms, <b>please acknowledge</b> our work by quoting one or more of the following papers:<br>
+<pre class="verbatim select-on-click">
+@article{DBLP:journals/heuristics/LammSSSW17,
+  author    = {Sebastian Lamm and
+               Peter Sanders and
+               Christian Schulz and
+               Darren Strash and
+               Renato F. Werneck},
+  title     = {Finding near-optimal independent sets at scale},
+  journal   = {J. Heuristics},
+  volume    = {23},
+  number    = {4},
+  pages     = {207--229},
+  year      = {2017},
+  url       = {https://doi.org/10.1007/s10732-017-9337-x},
+  doi       = {10.1007/s10732-017-9337-x},
+  timestamp = {Fri, 27 Dec 2019 21:13:52 +0100},
+  biburl    = {https://dblp.org/rec/journals/heuristics/LammSSSW17.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+</pre>
+If you use parallel kernelization routines (note that this is the default), the please also cite the following:
+<pre class="verbatim select-on-click">
+@inproceedings{DBLP:conf/wea/DahlumLS0SW16,
+  author    = {Jakob Dahlum and
+               Sebastian Lamm and
+               Peter Sanders and
+               Christian Schulz and
+               Darren Strash and
+               Renato F. Werneck},
+  title     = {Accelerating Local Search for the Maximum Independent Set Problem},
+  booktitle = {15th International Symposium on Experimental Algorithms {SEA}},
+  pages     = {118--133},
+  year      = {2016},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {9685},
+  publisher = {Springer},
+  url       = {https://doi.org/10.1007/978-3-319-38851-9\_9}
+}
+</pre>
+If you use OnlineMIS, then please also cite the following:
+<pre class="verbatim select-on-click">
+@article{DBLP:journals/jea/Hespe0S19,
+  author    = {Demian Hespe and
+               Christian Schulz and
+               Darren Strash},
+  title     = {Scalable Kernelization for Maximum Independent Sets},
+  journal   = {{ACM} Journal of Experimental Algorithmics},
+  volume    = {24},
+  number    = {1},
+  pages     = {1.16:1--1.16:22},
+  year      = {2019},
+  url       = {https://doi.org/10.1145/3355502},
+  doi       = {10.1145/3355502},
+  timestamp = {Fri, 27 Mar 2020 08:38:35 +0100},
+  biburl    = {https://dblp.org/rec/journals/jea/Hespe0S19.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}</pre>
+If you use the weighted independents set algorithms, please also cite the following:
+<pre class="verbatim select-on-click">
+@inproceedings{DBLP:conf/alenex/Lamm0SWZ19,
+  author    = {Sebastian Lamm and
+               Christian Schulz and
+               Darren Strash and
+               Robert Williger and
+               Huashuo Zhang},
+  title     = {Exactly Solving the Maximum Weight Independent Set Problem on Large Real-World Graphs},
+  booktitle = {Proceedings of the Twenty-First Workshop on Algorithm Engineering and Experiments, {ALENEX} 2019},
+  pages     = {144--158},
+  year      = {2019},
+  url       = {https://doi.org/10.1137/1.9781611975499.12},
+  doi       = {10.1137/1.9781611975499.12},
+  publisher = {{SIAM}},
+  year      = {2019}
+}</pre>
+
+</ul>
+                        <p></p>
+			<h2>Download</h2>
+                        <ul>
+                                <li> <a href="http://algo2.iti.kit.edu/schulz/software_releases/KaMIS_v2.0.tar.gz">KaMIS_v2.0.tar.gz</a> (or available on GitHub <a href="https://github.com/sebalamm/KaMIS/">here</a>) 
+                                <li> <a href="http://algo2.iti.kit.edu/schulz/software_releases/kamis.pdf">User Guide</a> 
+                                <li> Branch-and-reduce code that won the PACE challenge is <a href="https://github.com/sebalamm/pace-2019/archive/pace-2019.tar.gz">here</a>
+                                <!--<li> ParFastKer: Faster reductions through parallelism, dependency checking and reduction tracking can be found <a href="https://github.com/Hespian/ParFastKer"> here </a>-->
+
+
+                        </ul>
+
+			<h2>Support</h2>
+                        <ul>
+                                <li>Write us an <a href="mailto:kamis@ira.uni-karlsruhe.de?subject=SupportRequestKaMIS">email</a> if you need support!  
+                                <li>We are glad for any comments and error reports (or even bug fixes or feature requests) that you send us. 
+                                <li>Graphs used in our papers will be provided to you on request!
+                                </ul>
+                                
+	<h2>References</h2>
+                        <ul>
+                                <li> [1] Sebastian Lamm, Peter Sanders, Christian Schulz, Darren Strash, Renato F. Werneck. Finding Near-Optimial Independent Sets at Scale. Proceedings of the 18th Meeting on Algorithm Engineering and Experimentation (ALENEX'16). 2016. <a href="http://arxiv.org/pdf/1509.00764.pdf">PDF here</a>
+                                <li> [2] Sebastian Lamm, Peter Sanders, Christian Schulz. Graph Partitioning for Independent Sets. In Proceedings of the 14th Symposium on Experimental Algorithms (SEA’15), volume 8504 of Lecture Notes in Computer Science, pages 68–81. Springer, 2015. <a href="http://arxiv.org/pdf/1502.01687.pdf">PDF here</a>
+                                <li> [3] Demian Hespe, Christian Schulz and Darren Strash. Scalable Kernelization for Maximum Independent Sets. In Proceedings of the 20th Meeting on Algorithm Engineering and Experimentation (ALENEX'18). 2018. <a href="http://arxiv.org/pdf/1708.06151.pdf">PDF here</a>
+
+                                <li> [4] Demian Hespe, Sebastian Lamm, Christian Schulz and Darren Strash.
+WeGotYouCovered: The Winning Solver from the 2019 PACE Implementation Challenge, Vertex Cover Track.
+SIAM Workshop on Combinatorial Scientific Computing 2020, To appear, 2020. 
+ <a href="http://arxiv.org/pdf/1908.06795.pdf">PDF here</a>
+
+<li> [5] Exactly Solving the Maximum Weight Independent Set Problem on Large Real-World Graphs.
+Sebastian Lamm, Christian Schulz, Darren Strash, Robert Williger and Huashuo Zhang.
+ In  Proceedings of the 21th Workshop on Algorithm Engineering and Experimentation (ALENEX), pages 144--158, SIAM,  2019.  <a href="https://arxiv.org/pdf/1810.10834.pdf"> PDF here</a> 
+
+<li> [6] Accelerating Local Search for the Maximum Independent Set Problem.
+Jakob Dahlum, Sebastian Lamm, Peter Sanders, Christian Schulz, Darren Strash and Renato F. Werneck.
+ In  Proceedings of the 15th Symposium on Experimental Algorithms (SEA),  volume 9685 of LNCS, pages 118--133. Springer, 2016. <a href="https://arxiv.org/pdf/1602.01659.pdf"> PDF here </a> 
+
+<li>[7] Finding Near-Optimal Independent Sets at Scale.
+ Sebastian Lamm, Peter Sanders, Christian Schulz, Darren Strash, and Renato F. Werneck.
+ACM Journal of Heuristics, Volume 23, Issue 4, pages 207--229, 2017. <a href="https://doi.org/10.1007/s10732-017-9337-x">https://doi.org/10.1007/s10732-017-9337-x</a>.
+
+<li> [8] Scalable Kernelization for Maximum Independent Sets.
+Demian Hespe, Christian Schulz and Darren Strash.
+ACM Journal of Experimental Algorithms. Volume 21, Article No. 1, 2019. <a href="http://doi.acm.org/10.1145/3355502">http://doi.acm.org/10.1145/3355502</a>. 
+
+
+                                </ul>
+  
+			<h2>Other Open Source Frameworks</h2>
+                        <ul>
+                                <li> <a href="http://algo2.iti.kit.edu/kahip">KaHIP</a> -- Karlsruhe High Quality Partitioning 
+                                <li> <a href="http://algo2.iti.kit.edu/kahip">ParHIP</a> -- Parallel High Quality Partitioning 
+                                <li> <a href="http://algo2.iti.kit.edu/kadraw">KaDraw</a> -- Karlsruhe Graph Drawing 
+                                <li> <a href="http://algo2.iti.kit.edu/kalp">KaLP</a> -- Karlsruhe Longest Paths 
+                                <li> <a href="http://viem.taa.univie.ac.at">VieM</a> -- Vienna Mapping and Sparse Quadratic Assignment 
+                                <li> <a href="http://vieclus.taa.univie.ac.at">VieClus</a> -- Vienna Graph Clustering
+                                <li> <a href="https://github.com/sebalamm/KaGen/"> KaGen </a> -- Karlsruhe Graph Generation
+                                <li> <a href="https://github.com/kahypar/kahypar"> KaHyPar </a> -- Karlsruhe Hypergraph Partitioning
+
+	        </div>
+
+        </div>
+	<div id="footer">
+		<p>Copyright (c) 2015-2017. Site maintained by Sebastian Lamm, Christian Schulz and Darren Strash. All rights reserved. See main site for impressum. Design by <a href="http://www.freecsstemplates.org">FCT</a>.</p>
+	</div>
+</div>
+</body>
+</html>
